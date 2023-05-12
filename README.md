@@ -1,6 +1,5 @@
-# Project Name
 
-(short, 1-3 sentenced, description of the project)
+# AI Personal Assitant
 
 ## Features
 
@@ -16,24 +15,36 @@ This project framework provides the following features:
 
 (ideally very short, if any)
 
-- OS
-- Library version
-- ...
+- Python 3.10
+- Appsettings:
+```json
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "<You WebJobsStorage Connection String>",
+    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
+    "OPENAI_API_TYPE": "azure",
+    "OPENAI_API_KEY": "<Your OPENAI_API_KEY>",
+    "OPENAI_API_BASE": "<Your OPENAI_API_BASE>",
+    "OPENAI_API_VERSION": "<Corret OPENAI_API_VERSION>", 
+    "PINECONE_API_KEY": "<Your PINECONE_API_KEY>",
+    "PINECONE_ENV": "<Your PINECONE_ENV>"
+  }
+```
 
 ### Installation
 
 (ideally very short)
 
-- npm install [package name]
-- mvn install
+- Install latest azure functions core tools
+- func start
 - ...
 
 ### Quickstart
 (Add steps to get up and running quickly)
 
-1. git clone [repository clone url]
-2. cd [repository name]
-3. ...
+1. git clone https://github.com/Azure-Samples/azure-functions-services-openapi-pinecone-usecase.git
+2. cd folder `azure-functions-services-openapi-pinecone-usecase`
+3. run `func start`
 
 
 ## Demo
@@ -52,6 +63,6 @@ To run the demo, follow these steps:
 
 (Any additional resources or related projects)
 
-- Link to supporting information
-- Link to similar sample
-- ...
+- [LangChain](https://github.com/hwchase17/langchain)
+- [Pinecone](https://www.pinecone.io/)
+- [Azure Functions Python](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-python)
