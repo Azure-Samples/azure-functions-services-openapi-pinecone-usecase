@@ -16,7 +16,7 @@ pinecone.init(
 )
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
-
+    load_dotenv()
     try:
         req_body = req.get_json()
     except ValueError:
@@ -35,13 +35,15 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         logging.info(f"Split into {len(docs)} chunks")
         embeddings = OpenAIEmbeddings(
             deployment="text-embedding-ada-002",
-            model="text-embedding-ada-002"
+            model="text-embedding-ada-002",
+            openai_api_base=os.getenv("OPENAI_API_BASE"),
+            openai_api_type=os.getenv("OPENAI_API_TYPE")
         )
-        load_dotenv()
-        embeddings.openai_api_base = os.getenv("OPENAI_API_BASE")
+        # load_dotenv()
+        # embeddings.openai_api_base = os.getenv("OPENAI_API_BASE")
         embeddings.openai_api_key = os.getenv("OPENAI_API_KEY")
         embeddings.openai_api_version = os.getenv("OPENAI_API_VERSION")
-        embeddings.openai_api_type = os.getenv("OPENAI_API_TYPE")
+        # embeddings.openai_api_type = os.getenv("OPENAI_API_TYPE")
 
         logging.info(f"Embeddings initialized {os.getenv('OPENAI_API_BASE')}")
         docsearch = Pinecone.from_documents(docs, embeddings, index_name=index_name)
