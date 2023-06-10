@@ -13,8 +13,6 @@ This project framework provides the following features:
 
 ### Prerequisites
 
-(ideally very short, if any)
-
 - Python 3.10
 - Appsettings:
 ```json
@@ -33,8 +31,6 @@ This project framework provides the following features:
 
 ### Installation
 
-(ideally very short)
-
 - Install latest azure functions core tools
 - func start
 - ...
@@ -42,9 +38,12 @@ This project framework provides the following features:
 ### Quickstart
 (Add steps to get up and running quickly)
 
-1. git clone https://github.com/Azure-Samples/azure-functions-services-openapi-pinecone-usecase.git
-2. cd folder `azure-functions-services-openapi-pinecone-usecase`
-3. run `func start`
+1. Start backend Server
+    - git clone https://github.com/Azure-Samples/azure-functions-services-openapi-pinecone-usecase.git
+    - cd folder `azure-functions-services-openapi-pinecone-usecase/ai-personal-assistant/`
+    - run `func start` to start the backend service
+
+2. Start UI Server
 
 
 ## Demo
