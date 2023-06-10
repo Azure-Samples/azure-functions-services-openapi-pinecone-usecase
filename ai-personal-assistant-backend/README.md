@@ -1,3 +1,3 @@
-# functions-chatyourdata-langchain
+# AI Personal Assistant Backend
 
-This repo will have a implementation of the chat your data scenario using Azure Functions
+This folder contains the code for AI Personal Assistant Backend.
