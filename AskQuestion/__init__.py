@@ -9,9 +9,10 @@ from langchain.vectorstores import Pinecone
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.chains import RetrievalQA
 
+
 pinecone.init(
-    api_key='6c0de2ad-f1e8-438c-ad65-c92ab4b9c19c',
-    environment='asia-northeast1-gcp'
+    api_key=os.getenv("PINECONE_API_KEY"),
+    environment=os.getenv("PINECONE_ENV")
 )
 
 index_name = 'functions'
