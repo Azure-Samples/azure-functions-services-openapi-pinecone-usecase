@@ -4,7 +4,7 @@ import pinecone
 from dotenv import load_dotenv
 import azure.functions as func
 from langchain.vectorstores import Pinecone
-# from langchain.document_loaders import UnstructuredURLLoader, DirectoryLoader, JSONLoader, TextLoader
+from langchain.document_loaders import UnstructuredURLLoader, DirectoryLoader, JSONLoader, TextLoader, CSVLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.docstore.document import Document
@@ -70,12 +70,28 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     else:
         content = req_body.get('content')
     if content:
-        # loader = TextLoader("/mnt/d/projects/jsons/emails.txt")
+        import os
+
+        file_path = "jsons/emails.json"
+
+        if os.path.exists(file_path):
+            logging.info("File exists!")
+        else:
+            logging.info("File does not exist.")
+
+        # loader = TextLoader("jsons/emails.txt")
         # loader = DirectoryLoader(path="jsons/", glob='**/*.json', show_progress=True,
         #                          loader_cls=JSONLoader)
-        documents = [Document(page_content=content)]
+        # loader = JSONLoader(file_path="jsons/emails.json",
+        #                     jq_schema=["/assigned_to", "/description"])
+        # loader = CSVLoader(file_path="jsons/email.csv")
+        # loader = CSVLoader(file_path="jsons/github.csv")
+        loader = CSVLoader(file_path="jsons/workitems.csv")
+        documents = loader.load()
+        # documents = [Document(page_content=content)]
         logging.info(f"Retrieved {len(documents)} documents")
-        text_splitter = CharacterTextSplitter(chunk_size=10, chunk_overlap=0)
+        logging.info(f"Retrieved {documents}")
+        text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
         docs = text_splitter.split_documents(documents)
 
         logging.info(f"Split into {len(docs)} chunks")
@@ -92,8 +108,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         # embeddings.openai_api_type = os.getenv("OPENAI_API_TYPE")
 
         logging.info(f"Embeddings initialized {os.getenv('OPENAI_API_BASE')}")
-        docsearch = Pinecone.from_documents(
-            docs, embeddings, index_name=index_name)
+        for doc in docs:
+            Pinecone.from_documents(
+                [doc], embeddings, index_name=index_name)
         logging.info(f"Indexed {len(docs)} chunks")
         index_description = pinecone.describe_index(index_name)
         logging.info(index_description)
