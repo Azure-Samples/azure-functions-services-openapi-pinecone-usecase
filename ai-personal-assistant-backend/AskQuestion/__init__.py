@@ -3,21 +3,22 @@ import logging
 import pinecone
 import azure.functions as func
 from langchain.chains.question_answering import load_qa_chain
-from langchain.chat_models import ChatOpenAI
+from langchain.chat_models import ChatOpenAI, AzureChatOpenAI
 from langchain import OpenAI
 from langchain.vectorstores import Pinecone
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.chains import RetrievalQA
 
 pinecone.init(
-    api_key='6c0de2ad-f1e8-438c-ad65-c92ab4b9c19c',
-    environment='asia-northeast1-gcp'
+    api_key=os.getenv("PINECONE_API_KEY"),
+    environment=os.getenv("PINECONE_ENV")
 )
 
 index_name = 'functions'
 embeddings = OpenAIEmbeddings()
 docsearch = Pinecone.from_existing_index(index_name, embeddings)
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
+llm = AzureChatOpenAI(model_name="gpt-3.5-turbo", deployment_name="gpt-35",
+            openai_api_version=os.getenv("OPENAI_API_VERSION"))
 qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=docsearch.as_retriever())
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
