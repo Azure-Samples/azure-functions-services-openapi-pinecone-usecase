@@ -10,10 +10,6 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 
 index_name = 'functions'
 
-pinecone.init(
-    api_key='6c0de2ad-f1e8-438c-ad65-c92ab4b9c19c',
-    environment='asia-northeast1-gcp'
-)
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
 
