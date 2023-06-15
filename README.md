@@ -4,6 +4,9 @@
 
 Meet AIfred, your dedicated AI assistant designed to keep professionals, especially engineers, at the peak of productivity. AIfred employs AI to combine disparate information sources and present a streamlined view of your tasks and commitments. 
 
+![image](https://github.com/Azure-Samples/azure-functions-services-openapi-pinecone-usecase/assets/1047040/962366d2-159f-4ad5-bbb7-2242cbc3c270)
+
+
 **Key Features:**
 
 - **Unified Data View**: AIfred gathers data from multiple platforms such as emails, Azure DevOps, GitHub, ICM, etc., providing a comprehensive overview of your projects and tasks. 
