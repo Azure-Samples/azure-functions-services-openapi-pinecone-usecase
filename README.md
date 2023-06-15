@@ -1,9 +1,8 @@
-
 # AIfred: The AI Personal Assitant for your work
 
 **Introducing AIfred: The AI Personal Assistant Tailored for Professionals**
 
-Meet AIfred, your dedicated AI assistant designed to keep professionals, especially engineers, at the peak of productivity. AIfred employs AI to bring together disparate information sources and present a streamlined view of your tasks and commitments. 
+Meet AIfred, your dedicated AI assistant designed to keep professionals, especially engineers, at the peak of productivity. AIfred employs AI to combine disparate information sources and present a streamlined view of your tasks and commitments. 
 
 **Key Features:**
 
@@ -24,8 +23,10 @@ Experience a new standard in task management with AIfred - designed for professi
 
 ## Screenshots
 
+### The welcome UI
 <img width="1031" alt="image" src="https://github.com/Azure-Samples/azure-functions-services-openapi-pinecone-usecase/assets/1047040/eebc8157-becc-47b2-ac63-e41ede1c044c">
 
+### Asking questions to AIFred
 <img width="1098" alt="image" src="https://github.com/Azure-Samples/azure-functions-services-openapi-pinecone-usecase/assets/1047040/7dd5cb71-51ed-4507-ac38-8f54486d8987">
 
 <img width="1504" alt="image" src="https://github.com/Azure-Samples/azure-functions-services-openapi-pinecone-usecase/assets/1047040/27f3d2f9-0cb1-498b-84cd-5a260199b2aa">
