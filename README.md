@@ -1,15 +1,36 @@
 
-# AI Personal Assitant
+# AIfred: The AI Personal Assitant for your work
 
-## Features
+**Introducing AIfred: The AI Personal Assistant Tailored for Professionals**
 
-This project framework provides the following features:
+Meet AIfred, your dedicated AI assistant designed to keep professionals, especially engineers, at the peak of productivity. AIfred employs AI to bring together disparate information sources and present a streamlined view of your tasks and commitments. 
 
-* Feature 1
-* Feature 2
-* ...
+**Key Features:**
 
-## Getting Started
+- **Unified Data View**: AIfred gathers data from multiple platforms such as emails, Azure DevOps, GitHub, ICM, etc., providing a comprehensive overview of your projects and tasks. 
+- **Data Standardization**: Using OpenAI's Ada-003 model, incoming data is converted into embeddings, standardizing it for efficient storage and retrieval.
+- **Vector Database Integration**: AIfred stores data embeddings in Pinecone, a cutting-edge vector database. [Pinecone]([#](https://www.pinecone.io/)) 
+- **Active Polling**: Regular polling ensures your data stays up-to-date and accurate.
+- **Intelligent Query Resolution**: Leveraging [LangChain's Retrieval QA](https://python.langchain.com/en/latest/modules/chains/index_examples/vector_db_qa.html) mechanism, AIfred can fetch and prompt responses to user queries.
+- **Intuitive UI**: AIfred uses [Streamlit](https://streamlit.io/) for a user-friendly, easily consumable interface.
+
+**Uniqueness (USP):**
+
+- **Simplify and Streamline**: AIfred transforms the mundane task of managing emails and other data sources, offering a convenient first pass on incoming information.
+- **Personalized Experience**: AIfred can be tailored to your needs through frameworks like Logic Apps' connector ecosystem and adding more connections.
+- **Cloud-Optimized**: AIfred seamlessly integrates with Azure Functions, with the backend and UI running in separate apps. The backend is responsible for data ingestion, embedding, vector DB management, and API provision, while the Streamlit-based UI utilizes a custom handler mechanism. 
+
+Experience a new standard in task management with AIfred - designed for professionals powered by AI.
+
+## Screenshots
+
+<img width="1031" alt="image" src="https://github.com/Azure-Samples/azure-functions-services-openapi-pinecone-usecase/assets/1047040/eebc8157-becc-47b2-ac63-e41ede1c044c">
+
+<img width="1098" alt="image" src="https://github.com/Azure-Samples/azure-functions-services-openapi-pinecone-usecase/assets/1047040/7dd5cb71-51ed-4507-ac38-8f54486d8987">
+
+<img width="1504" alt="image" src="https://github.com/Azure-Samples/azure-functions-services-openapi-pinecone-usecase/assets/1047040/27f3d2f9-0cb1-498b-84cd-5a260199b2aa">
+
+<img width="982" alt="image" src="https://github.com/Azure-Samples/azure-functions-services-openapi-pinecone-usecase/assets/1047040/741df9b8-3248-4d7b-8bb3-f66e232a82b7">
 
 ### Prerequisites
 
@@ -32,6 +53,8 @@ This project framework provides the following features:
 ### Installation
 
 - Install latest azure functions core tools
+- Install Python dependencies
+  - `python -m pip install -r requirements.txt`
 - func start
 - ...
 
@@ -44,19 +67,6 @@ This project framework provides the following features:
     - run `func start` to start the backend service
 
 2. Start UI Server
-
-
-## Demo
-
-A demo app is included to show how to use the project.
-
-To run the demo, follow these steps:
-
-(Add steps to start up the demo)
-
-1.
-2.
-3.
 
 ## Resources
 
